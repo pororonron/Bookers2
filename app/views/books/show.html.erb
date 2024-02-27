@@ -1,6 +1,13 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1>Book detail</h1>
 
-<% if @book.id == current_user.id %>
-  <%= link_to 'Destroy', book_path(@book), method: :delete %>
+<p>
+  <%= link_to user_path(@book.user_id) do %>
+    <%= @book.user.name %>
+  <% end %>
+</p>
+<p><%= @book.title %></p>
+<p><%= @book.body %></p>
+
+<% if @book.user_id == current_user.id %>
+  <%= link_to 'Destroy', book_path(@book), method: :delete, 'data-confirm' => '本当に消しますか？' %>
 <% end %>

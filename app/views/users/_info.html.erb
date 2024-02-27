@@ -1,0 +1,23 @@
+<h1>User info</h1>
+
+<div>
+  <%= image_tag user.get_profile_image(100, 100) %>
+  <table>
+    <tbody>
+      <tr>
+        <td>name</td>
+        <td><%= user.name %></td>
+      </tr>
+      <tr>
+        <td>introduction</td>
+        <td><%= user.introduction %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<% if user.id == current_user.id %>
+  <%= link_to edit_user_path(user.id) do %>
+    <i class="fa-solid fa-user-gear"></i>
+  <% end %>
+<% end %>
