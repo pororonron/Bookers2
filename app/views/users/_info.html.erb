@@ -1,14 +1,15 @@
 <h2>User info</h2>
+
 <div>
   <%= image_tag user.get_profile_image(100, 100) %>
-  <table class="table">
+  <table class="table text-break">
     <tbody class="font-weight-bold">
       <tr>
-        <td>name</td>
+        <td class="text-nowrap">name</td>
         <td><%= user.name %></td>
       </tr>
       <tr>
-        <td>introduction</td>
+        <td class="text-nowrap">introduction</td>
         <td><%= user.introduction %></td>
       </tr>
     </tbody>

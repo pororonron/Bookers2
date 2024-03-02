@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="row no-gutters mt-3 px-4">
-    <div class="col-md-3 col-sm-10">
+  <div class="row no-gutters mt-3 justify-content-center">
+    <div class="col-md-3 col-10">
       <%= render 'info', user: @user %>
       <%= render 'books/new', newBook: @new_book %>
     </div>
-    <div class="col-md-8 offset-md-1">
+    <div class="col-md-8 offset-md-1 col-10">
       <%= render 'books/list', books: @books %>
     </div>
   </div>

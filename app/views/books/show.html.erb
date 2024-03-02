@@ -1,18 +1,45 @@
-<%= render 'users/info', user: @user %>
-<%= render 'new', newBook: @new_book %>
+<div class="container">
+  <div class="row no-gutters mt-3 justify-content-center">
+    <div class="col-md-3 col-10">
+      <%= render 'users/info', user: @user %>
+      <%= render 'new', newBook: @new_book %>
+    </div>
 
-<h1>Book detail</h1>
-
-<%= image_tag @book.user.get_profile_image(100, 100) %>
-<p>
-  <%= link_to user_path(@book.user_id) do %>
-    <%= @book.user.name %>
-  <% end %>
-</p>
-<p><%= @book.title %></p>
-<p><%= @book.body %></p>
-
-<% if @book.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_book_path(@book) %>
-  <%= link_to 'Destroy', book_path(@book), method: :delete, 'data-confirm' => '本当に消しますか？' %>
-<% end %>
+    <div class="col-md-8 offset-md-1 col-10">
+      <h2>Book detail</h2>
+      <table class="table text-wrap text-break">
+        <tbody>
+          <tr>
+            <td>
+              <%= image_tag @book.user.get_profile_image(100, 100) %>
+              <p>
+                <%= link_to user_path(@book.user_id) do %>
+                  <%= @book.user.name %>
+                <% end %>
+              </p>
+            </td>
+            <td>
+              <%= link_to book_path(@book) do %>
+                <%= @book.title %>
+              <% end %>
+              </td>
+            <td>
+              <%= @book.body %>
+            </td>
+            <td class="text-nowrap">
+              <% if @book.user_id == current_user.id %>
+                <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %>
+              <% end %>
+            </td>
+            <td class="text-nowrap">
+              <% if @book.user_id == current_user.id %>
+                <%= link_to 'Destroy', book_path(@book), method: :delete, 'data-confirm' => '本当に消しますか？',
+                                       class: "btn btn-sm btn-danger" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
